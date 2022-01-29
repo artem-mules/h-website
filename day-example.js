@@ -27,12 +27,14 @@ allCollectionDayItems.forEach(dayItem => {
         cloneOfRow = clonableRow.cloneNode(true);
         cloneOfRow.querySelector('.schedule__item-time').textContent = scheduleData.time;
         cloneOfRow.querySelector('.schedule__item-description').textContent = scheduleData.description;
+        cloneOfRow.classList.remove('hidden-element');
         appendWaiterRow.append(cloneOfRow);
     });
 
     schedulePhotosArray.forEach(photoSrcData => {
         cloneOfPhoto = clonablePhoto.cloneNode(true);
         cloneOfPhoto.setAttribute('src', photoSrcData);
+        cloneOfPhoto.classList.remove('hidden-element');
         appendWaiterPhoto.append(cloneOfPhoto);
     });
 });
