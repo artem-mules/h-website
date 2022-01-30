@@ -61,11 +61,9 @@ allCollectionDayItems.forEach(dayItemFilled => {
                 el.classList.remove('day-slider-content-illustration--active');
             });
             renderedRow.classList.add('schedule__item--focused');
-            allRenderedPhotos.forEach(el => {
-                if (el.id == rowId) {
-                    el.classList.add('day-slider-content-illustration--active');
-                }
-            });
+            setTimeout(() => {
+                allRenderedPhotos[rowId].classList.add('day-slider-content-illustration--active');
+            }, 200);
         });
     });
 
