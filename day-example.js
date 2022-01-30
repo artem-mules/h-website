@@ -28,6 +28,8 @@ allCollectionDayItems.forEach(dayItem => {
         cloneOfRow.querySelector('.schedule__item-time').textContent = scheduleData.time;
         cloneOfRow.querySelector('.schedule__item-description').textContent = scheduleData.description;
         cloneOfRow.classList.remove('hidden-element');
+        cloneOfRow.classList.remove('schedule__item--focused');
+        cloneOfRow.classList.add('schedule__item--rendered');
         appendWaiterRow.append(cloneOfRow);
     });
 
@@ -35,6 +37,37 @@ allCollectionDayItems.forEach(dayItem => {
         cloneOfPhoto = clonablePhoto.cloneNode(true);
         cloneOfPhoto.setAttribute('src', photoSrcData);
         cloneOfPhoto.classList.remove('hidden-element');
+        cloneOfPhoto.classList.remove('day-slider-content-illustration--active');
+        cloneOfPhoto.classList.add('day-slider-content-illustration--rendered');
         appendWaiterPhoto.append(cloneOfPhoto);
     });
+});
+
+//делаю все первые пункты расписания активными
+allCollectionDayItems.forEach(dayItemFilled => {
+    dayItemFilled.querySelectorAll('.schedule__item--rendered')[0].classList.add('schedule__item--focused');
+    dayItemFilled.querySelectorAll('.day-slider-content-illustration--rendered')[0].classList.add('day-slider-content-illustration--active');
+
+    //теперь возьмём все сформированные блоки
+    let allRenderedRows = dayItemFilled.querySelectorAll('.schedule__item--rendered');
+    let allRenderedPhotos = dayItemFilled.querySelectorAll('.day-slider-content-illustration--rendered');
+
+    allRenderedRows.forEach((renderedRow, rowId) => {
+        renderedRow.addEventListener('mouseenter', function() {
+            allRenderedRows.forEach(el => {
+                el.classList.remove('schedule__item--focused');
+            });
+            allRenderedPhotos.forEach(el => {
+                el.classList.remove('day-slider-content-illustration--active');
+            });
+            renderedRow.classList.add('schedule__item--focused');
+            allRenderedPhotos.forEach(el => {
+                if (el.id == rowId) {
+                    el.classList.add('day-slider-content-illustration--active');
+                }
+            });
+        });
+    });
+
+
 });
