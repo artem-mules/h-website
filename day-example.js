@@ -63,7 +63,7 @@ allCollectionDayItems.forEach(dayItemFilled => {
             renderedRow.classList.add('schedule__item--focused');
             setTimeout(() => {
                 allRenderedPhotos[rowId].classList.add('day-slider-content-illustration--active');
-            }, 400);
+            }, 0);
         });
     });
 
