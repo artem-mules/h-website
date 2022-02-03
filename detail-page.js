@@ -20,3 +20,12 @@ function checkCatNames() {
 }
 
 checkCatNames();
+
+
+//hide slider if 0 slides
+
+let allSlides = document.querySelectorAll('.cl-i__main-page-slider');
+let sliderSection = document.querySelector('.section--detail-page-slider');
+if (allSlides.length == 0) {
+    sliderSection.classList.add('hide');
+}
