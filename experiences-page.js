@@ -23,3 +23,4 @@ setInterval(() => {
     checkCatNames();
 }, 1000);
 
+checkCatNames();
