@@ -23,9 +23,3 @@ setInterval(() => {
     checkCatNames();
 }, 1000);
 
-
-//make first filter's button active
-setTimeout(() => {
-    let filterFirstButton = document.querySelector('.filter__rad-button');
-    filterFirstButton.click();
-}, 500);
