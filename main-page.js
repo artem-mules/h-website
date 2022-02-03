@@ -23,11 +23,11 @@ function startMarq() {
 }
 
 marqRow.addEventListener('mouseenter', function() {
-    killMarq = setInterval(() => {
-        currentSpeed = currentSpeed + 2;
-        clearTimeout(liveMarq);
-        startMarq();
-    }, 50);
+    // killMarq = setInterval(() => {
+    //     currentSpeed = currentSpeed + 2;
+    //     clearTimeout(liveMarq);
+    //     startMarq();
+    // }, 50);
 });
 
 setInterval(() => {
@@ -38,10 +38,10 @@ setInterval(() => {
 }, 10);
 
 marqRow.addEventListener('mouseleave', function () {
-    clearTimeout(liveMarq);
-    clearTimeout(killMarq);
-    currentSpeed = speed;
-    startMarq();
+    // clearTimeout(liveMarq);
+    // clearTimeout(killMarq);
+    // currentSpeed = speed;
+    // startMarq();
 });
 
 
