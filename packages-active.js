@@ -1,4 +1,5 @@
 let hiddenInput = document.querySelector('.package-input');
+let dateInput = document.querySelector('#booking__dates');
 let currentPackage = localStorage.getItem('storageSelectedPackage')
 let allPackCards = document.querySelectorAll('.cl-i__packages-item');
 
@@ -52,6 +53,7 @@ function goToCurrentCard() {
 if (currentPackage != null) {
     setTimeout(() => {
         makeCardActive();
+        dateInput.value = 'Dates';
         setTimeout(() => {
             goToCurrentCard();
         }, 500);
