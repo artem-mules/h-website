@@ -21,6 +21,13 @@ allPackCards.forEach(packCard => {
 
 
 
+let allLinksToAnc = document.querySelectorAll('.cards-anc');
+
+allLinksToAnc.forEach(link => {
+    let currentSectionId = link.querySelector('.data-id-of-anc').getAttribute('id');
+    link.setAttribute('href', ('#'+currentSectionId));
+});
+
 function makeCardActive() {
     allPackCards.forEach(packCard => {
         let currentCardPackageName = packCard.querySelector('.package-data').getAttribute('data-package-name');
@@ -30,8 +37,25 @@ function makeCardActive() {
    }); 
 }
 
+function goToCurrentCard() {
+    allLinksToAnc.forEach(link => {
+        let currentSectionId = link.querySelector('.data-id-of-anc').getAttribute('id');
+        if (currentPackage == currentSectionId) {
+            link.click();
+        }
+    });
+}
+
+
+
+
+
+
 if (currentPackage != null) {
     setTimeout(() => {
         makeCardActive();
+        setTimeout(() => {
+            goToCurrentCard();
+        }, 500);
     }, 500);
 }
