@@ -53,7 +53,6 @@ function goToCurrentCard() {
 if (currentPackage != null) {
     setTimeout(() => {
         makeCardActive();
-        dateInput.value = 'Dates';
         setTimeout(() => {
             goToCurrentCard();
         }, 500);
