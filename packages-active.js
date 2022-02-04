@@ -1,9 +1,6 @@
+let hiddenInput = document.querySelector('.package-input');
 let currentPackage = localStorage.getItem('storageSelectedPackage')
 let allPackCards = document.querySelectorAll('.cl-i__packages-item');
-
-function makeCardActive() {
-    
-}
 
 allPackCards.forEach(packCard => {
     packCard.addEventListener('click', function() {
@@ -14,6 +11,7 @@ allPackCards.forEach(packCard => {
 
         let currentCardPackageName = packCard.querySelector('.package-data').getAttribute('data-package-name');
         localStorage.setItem('storageSelectedPackage', currentCardPackageName);
+        hiddenInput.value = currentCardPackageName;
         packCard.classList.add('cl-i__packages-item--active');
         packCard.classList.remove('cl-i__packages-item--disable');
     });
@@ -59,3 +57,8 @@ if (currentPackage != null) {
         }, 500);
     }, 500);
 }
+
+
+
+
+
