@@ -47,3 +47,30 @@ marqRow.addEventListener('mouseleave', function () {
 
 
 startMarq();
+
+
+
+//–––––––––––––––––––––––––
+let menuTrigger = document.querySelector('.menu-trigger');
+let menuButton = document.querySelector('.button--menu--1');
+let menuCheckEl = document.querySelector('.el-checker');
+
+function menuCheck() {
+    let distanceData = Math.round(menuTrigger.getBoundingClientRect().y);
+    if (distanceData < 0) {
+        if (menuCheckEl.style.display == 'block') {
+            menuButton.click();
+        }
+    } else {
+        if (menuCheckEl.style.display == 'none') {
+            menuButton.click();
+        }
+    }
+}
+
+window.addEventListener('scroll', function () {
+    menuCheck();
+})
+
+
+menuCheck();
