@@ -12,7 +12,9 @@ allPackCards.forEach(packCard => {
 
         let currentCardPackageName = packCard.querySelector('.package-data').getAttribute('data-package-name');
         localStorage.setItem('storageSelectedPackage', currentCardPackageName);
-        hiddenInput.value = currentCardPackageName;
+        if (page == 'booking') {
+            hiddenInput.value = currentCardPackageName;
+        }
         packCard.classList.add('cl-i__packages-item--active');
         packCard.classList.remove('cl-i__packages-item--disable');
     });
