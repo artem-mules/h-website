@@ -1,11 +1,13 @@
 function changeCounter() {
     let allNavNums = document.querySelectorAll('.w-slider-dot');
     let counterTextEl = document.querySelector('.main-page-slider__counter__text');
+    let cursorCounterTextEl = document.querySelector('.cursor-text-counter');
     let allCli = document.querySelectorAll('.cl-i__main-page-slider');
 
     allNavNums.forEach(dot => {
         if (dot.classList.contains('w-active')) {
             counterTextEl.textContent = (dot.textContent + '/' + allCli.length);
+            cursorCounterTextEl.textContent = (dot.textContent + '/' + allCli.length);
         }
     });
 }
