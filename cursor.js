@@ -4,10 +4,10 @@ let currentElement = null;
 document.addEventListener('mouseover', function (e) {
     currentElement = e.target;
     let attributesArray = new Array();
-    attributesArray.push(currentElement.hasAttribute('data-cursor-color'));
+    attributesArray.push(currentElement.hasAttribute('data-cursor'));
     while (currentElement.parentElement != null) {
         currentElement = currentElement.parentElement;
-        attributesArray.push(currentElement.hasAttribute('data-cursor-color'));
+        attributesArray.push(currentElement.hasAttribute('data-cursor'));
     }
     
     if (attributesArray.includes(true)) {
