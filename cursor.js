@@ -20,6 +20,7 @@
 let cursorEl = document.querySelector('.cursor');
 let cursorElText = document.querySelector('.cursor-text');
 let currentElement = null;
+let counterElSlider = document.querySelector('.cursor-text-counter');
 
 document.addEventListener('mouseover', function (e) {
     currentElement = e.target;
@@ -46,6 +47,14 @@ document.addEventListener('mouseover', function (e) {
                 cursorElText.style.color = elHovered.getAttribute('data-cursor-color-text');
                 cursorElText.textContent = elHovered.getAttribute('data-cursor-text');
                 cursorElText.classList.add('cursor-text--active');
+
+                if (elHovered.hasAttribute('data-cursor-slider')) {
+                    counterElSlider.classList.add('cursor-text--active');
+                    cursorElText.classList.remove('cursor-text--active');
+                } else {
+                    counterElSlider.classList.remove('cursor-text--active');
+                }
+
             } else {
                 cursorEl.classList.add('cursor--active--simple');
                 cursorEl.classList.remove('cursor--active');
@@ -66,7 +75,10 @@ document.addEventListener('mouseover', function (e) {
         cursorEl.style.backgroundColor = '#3E67B0';
         cursorElText.style.color = '#FFFCFB';
         cursorEl.style.borderColor = '#FFFCFB';
+        counterElSlider.classList.remove('cursor-text--active');
     }
     
 
 });
+
+console.log('hey hey');
