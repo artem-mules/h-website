@@ -22,14 +22,20 @@ let currentElement = null;
 
 document.addEventListener('mouseover', function (e) {
     currentElement = e.target;
+    let elementsArray = new Array();
     let attributesArray = new Array();
-    attributesArray.push(currentElement);
+    //первичное добавление данных в аттрибут
+    elementsArray.push(currentElement);
+    attributesArray.push(currentElement.hasAttribute('data-cursor'));
+
+    //вторичное добавление данных в аттрибут
     while (currentElement.parentElement != null) {
         currentElement = currentElement.parentElement;
-        attributesArray.push(currentElement);
+        elementsArray.push(currentElement);
+        attributesArray.push(currentElement.hasAttribute('data-cursor'));
     }
 
-    attributesArray.forEach(elHovered => {
+    elementsArray.forEach(elHovered => {
         if (elHovered.hasAttribute('data-cursor')) {
             if (elHovered.hasAttribute('data-cursor-widget')) {
                 cursorEl.classList.remove('cursor--active--simple');
@@ -40,4 +46,11 @@ document.addEventListener('mouseover', function (e) {
             }
         }
     });
+
+    if (attributesArray.includes(true) == false) {
+        cursorEl.classList.remove('cursor--active--simple');
+        cursorEl.classList.remove('cursor--active');
+    }
+    
+
 });
