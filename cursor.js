@@ -31,7 +31,13 @@ document.addEventListener('mouseover', function (e) {
 
     attributesArray.forEach(elHovered => {
         if (elHovered.hasAttribute('data-cursor')) {
-            console.log(elHovered);
+            if (elHovered.hasAttribute('data-cursor-widget')) {
+                cursorEl.classList.remove('cursor--active--simple');
+                cursorEl.classList.add('cursor--active');
+            } else {
+                cursorEl.classList.add('cursor--active--simple');
+                cursorEl.classList.remove('cursor--active');
+            }
         }
     });
 });
