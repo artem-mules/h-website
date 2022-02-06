@@ -18,6 +18,7 @@
 // });
 
 let cursorEl = document.querySelector('.cursor');
+let cursorElText = document.querySelector('.cursor-text');
 let currentElement = null;
 
 document.addEventListener('mouseover', function (e) {
@@ -40,9 +41,13 @@ document.addEventListener('mouseover', function (e) {
             if (elHovered.hasAttribute('data-cursor-widget')) {
                 cursorEl.classList.remove('cursor--active--simple');
                 cursorEl.classList.add('cursor--active');
+                cursorElText.textContent = elHovered.getAttribute('data-cursor-text');
+                cursorElText.classList.add('cursor-text--active');
             } else {
                 cursorEl.classList.add('cursor--active--simple');
                 cursorEl.classList.remove('cursor--active');
+                cursorElText.textContent = '';
+                cursorElText.classList.remove('cursor-text--active');
             }
         }
     });
@@ -50,6 +55,8 @@ document.addEventListener('mouseover', function (e) {
     if (attributesArray.includes(true) == false) {
         cursorEl.classList.remove('cursor--active--simple');
         cursorEl.classList.remove('cursor--active');
+        cursorElText.textContent = '';
+        cursorElText.classList.remove('cursor-text--active');
     }
     
 
