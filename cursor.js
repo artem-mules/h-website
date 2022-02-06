@@ -41,6 +41,9 @@ document.addEventListener('mouseover', function (e) {
             if (elHovered.hasAttribute('data-cursor-widget')) {
                 cursorEl.classList.remove('cursor--active--simple');
                 cursorEl.classList.add('cursor--active');
+                cursorEl.style.backgroundColor = elHovered.getAttribute('data-cursor-color');
+                cursorEl.style.borderColor = elHovered.getAttribute('data-cursor-color-border');
+                cursorElText.style.color = elHovered.getAttribute('data-cursor-color-text');
                 cursorElText.textContent = elHovered.getAttribute('data-cursor-text');
                 cursorElText.classList.add('cursor-text--active');
             } else {
@@ -48,6 +51,9 @@ document.addEventListener('mouseover', function (e) {
                 cursorEl.classList.remove('cursor--active');
                 cursorElText.textContent = '';
                 cursorElText.classList.remove('cursor-text--active');
+                cursorEl.style.backgroundColor = '#3E67B0';
+                cursorElText.style.color = '#FFFCFB';
+                cursorEl.style.borderColor = '#FFFCFB';
             }
         }
     });
@@ -57,6 +63,9 @@ document.addEventListener('mouseover', function (e) {
         cursorEl.classList.remove('cursor--active');
         cursorElText.textContent = '';
         cursorElText.classList.remove('cursor-text--active');
+        cursorEl.style.backgroundColor = '#3E67B0';
+        cursorElText.style.color = '#FFFCFB';
+        cursorEl.style.borderColor = '#FFFCFB';
     }
     
 
