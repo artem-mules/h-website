@@ -29,3 +29,5 @@ let sliderSection = document.querySelector('.section--detail-page-slider');
 if (allSlides.length == 0) {
     sliderSection.classList.add('hide');
 }
+
+//тут выдёргиваем значение для чекбоксов
