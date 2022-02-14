@@ -80,5 +80,3 @@ document.addEventListener('mouseover', function (e) {
     
 
 });
-
-console.log('hey hey');

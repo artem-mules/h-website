@@ -7,6 +7,4 @@ allAddons.forEach(checkRow => {
     currentCheckBox.setAttribute('id', currentNameFromCms);
     currentCheckBox.setAttribute('name', currentNameFromCms);
     currentCheckBox.setAttribute('data-name', currentNameFromCms);
-
-    console.log(currentCheckBox);
 });
