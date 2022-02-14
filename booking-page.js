@@ -1,4 +1,5 @@
 let allAddons = document.querySelectorAll('.check-row');
+let formButton = document.querySelector('.form-button');
 
 allAddons.forEach(checkRow => {
     let currentCheckBox = checkRow.querySelector('[type="checkbox"]');
@@ -7,4 +8,8 @@ allAddons.forEach(checkRow => {
     currentCheckBox.setAttribute('id', currentNameFromCms);
     currentCheckBox.setAttribute('name', currentNameFromCms);
     currentCheckBox.setAttribute('data-name', currentNameFromCms);
+});
+
+formButton.addEventListener('click', function() {
+    localStorage.setItem('storageSelectedPackage', 'none')
 });
